@@ -1,0 +1,87 @@
+﻿
+@model facebook.ViewModels.UserViewModel
+
+<html>
+<body>
+    <div>
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/Content/asd.css">
+        <!------ Include the above in your HEAD tag ---------->
+
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Tabs Titles -->
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <img src="~/Content/aa.png" id="icon" alt="User Icon" />
+                </div>
+
+                <!-- Login Form -->
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                {
+                    <form>
+                        @Html.TextBoxFor(model => model.email, new { @class = "fadeIn second", placeholder = "email" })
+
+                        @Html.TextBoxFor(model => model.password, new { @class = "fadeIn second", placeholder = "password" })
+
+
+                        <input type="submit" class="fadeIn fourth" value="Login" name="button" />
+
+                    </form>
+                }
+
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                    <a id="btnShowModal" class="underlineHover" href="#" >Forgot Password?</a>
+                </div>
+
+                <!-- div for the modal po up forgot pass -->
+
+
+
+                <div class="modal fade" id="MyModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                                <h4 id="ModalTitle"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="form">
+                                    <fieldset id="SubmitForm">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(model => model.email, new { @class = "fadeIn second", placeholder = "email" })
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <a href="#" class="btn btn-block btn-danger" id="SaveStudentRecord">UPDATE</a>
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--script for modal -->>
+                <script>
+                    function ShtoPerson() {
+                       $(document).ready(function () {  
+            $("#btnShowModal").click(function () {  
+                $("#MyModal").modal('show');  
+            });  
+  
+
+                    }
+
+                </script>
+
+            </div>
+            </div>
+    </div>
+</body>
+</html>
+    

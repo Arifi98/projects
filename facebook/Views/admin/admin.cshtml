@@ -1,0 +1,96 @@
+﻿@model IEnumerable<facebook.Models.useri>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+@*<link rel="stylesheet" type="text/css" href="~/Content/datatables.min.css" />
+
+    <script type="text/javascript" src="~/Content/datatables.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/datatables.css" />
+
+    <script type="text/javascript" src="~/Content/datatables.js"></script>*@
+
+<div class="container">
+    <br />
+    <div style="width:90%; margin:0 auto;">
+        <table id="demoGrid" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>person ID</th>
+                    <th>emer</th>
+                    <th>Mbiemer</th>
+                    <th>email</th>
+                    <th>Password Encrypted</th>
+                    <th>Admin Or User</th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.emer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mbiemer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdminOrUser)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+        <div>
+            <a href="/admin/Download" class="btn btn-block btn-danger" id="icon" >UPDATE</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+    //datatable
+    $('#demoGrid').dataTable({
+    });
+
+
+    $(document).ready(function () {
+        $("#icon").click(function () {
+            var searchi = $('input[type="search"]').val();
+            $.ajax({
+                url: '/admin/admin',
+                type: 'POST',
+                dataType: 'json',
+                data: { search: searchi },
+                success: function (data) {
+
+                },
+
+            });
+
+        });
+    });
+
+</script> 

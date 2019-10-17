@@ -1,0 +1,46 @@
+﻿
+
+@model facebook.Models.useri
+
+
+
+<html>
+<body>
+    <div>
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/Content/login.css">
+        <!------ Include the above in your HEAD tag ---------->
+
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Tabs Titles -->
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <img src="~/Content/aa.png" id="icon" alt="User Icon" />
+                </div>
+
+                <!-- Login Form -->
+                <form>
+                    @Html.TextBoxFor(model => model.emer, new { @class = "fadeIn second", placeholder = "username" })
+
+                    @Html.TextBoxFor(model => model.password, new { @class = "fadeIn second", placeholder = "password" })
+
+
+                    <input type="submit" class="fadeIn fourth" value="Register" name="button">
+
+                </form>
+
+                <!-- Remind Passowrd -->
+                @*<div id="formFooter">
+                    <a class="underlineHover" href="#">Forgot Password?</a>
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
